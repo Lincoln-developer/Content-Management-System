@@ -13,12 +13,12 @@ const mailOptionsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  body:{
-    type:String,
-    required:true
-  }
+  body: {
+    type: String,
+    required: true,
+  },
 });
 
-const Mail = mongoose.model('Mail',mailOptionsSchema);
+const Mail = mongoose.model('Mail', mailOptionsSchema);
 
-export default Mail;    
+export default Mail;
