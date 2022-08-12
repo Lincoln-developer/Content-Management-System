@@ -1,10 +1,11 @@
 import mongoose from 'mongoose';
 
 //Connecting to mongodb
-mongoose
-  .connect(process.env.DATABASE_URL)
-  .then(console.log('Connected to Database'))
-  .catch(console.log('Error connecting Database'));
+mongoose.connect(process.env.DATABASE_URL, (error) => {
+  if (error) {
+    return error;
+  }
+});
 
 const db = mongoose.connection;
 
