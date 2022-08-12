@@ -19,7 +19,7 @@ const adminSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { collection: 'RegisteredUsers' }
+  { collection:'RegisteredAdmin'}
 );
 
 const Admin = mongoose.model('Admin', adminSchema);
