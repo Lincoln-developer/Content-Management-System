@@ -8,7 +8,7 @@ const mailController = async (req, res) => {
   //Reusable transporter object using the default SMTP transport
   const transporter = nodemailer.createTransport({
     host: 'smtp.ethereal.email',
-    port: 3000,
+    port: 587,
     secure: false,
     auth: {
       user: testAccount.user,
