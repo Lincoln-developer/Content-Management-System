@@ -8,9 +8,8 @@ app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
-import nodemailer from "nodemailer";
 
-const transporter = nodemailer.createTransport({
+/*const transporter = nodemailer.createTransport({
     service:'gmail',
     auth:{
         user:process.env.EMAIL,
@@ -31,9 +30,9 @@ transporter.sendMail(mailOptions, (err, data)=> {
     }else{
         console.log('Email is sent')
     }
-})
+})*/
 
-const PORT = 3300;
+const PORT = process.env.PORT
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`)

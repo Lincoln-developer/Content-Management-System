@@ -21,4 +21,4 @@ const mailOptionsSchema = new mongoose.Schema({
 
 const Mail = mongoose.model('Mail',mailOptionsSchema);
 
-export default Mail;
+export default Mail;    
