@@ -18,10 +18,15 @@ const adminSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+      required: true,
+    },
   },
-  { collection:'RegisteredAdmin'}
-);
+  { collection: 'RegisteredUser' }
+);s
 
-const Admin = mongoose.model('Admin', adminSchema);
+const User = mongoose.model('Admin', adminSchema);
 
-export default Admin;
+export default User;
