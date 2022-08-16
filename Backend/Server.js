@@ -1,13 +1,34 @@
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
-import mailRoute from './Views/mail-view.js';
-import db from './Config/database.js';
+import mailRoute from './routes/mail-route.js';
+import db from './config/database.js';
+import swaggerJSDoc from 'swagger-jsdoc';
+import SwaggerUi from 'swagger-ui-express';
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
+
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: 'Content management system api',
+      description: 'This system facilitates content management',
+    },
+    contact: {
+      name: 'Ang_Lincoln',
+      email: 'coding-addict@gmail.com',
+    },
+    url: ["http://localhost:3000"],
+  },
+  apis: ["./routes/*.js"]
+};
+
+const swaggerDocs = swaggerJSDoc(swaggerOptions)
+
+app.use("/api-docs", SwaggerUi.serve, SwaggerUi.setup(swaggerDocs));
 
 /*const transporter = nodemailer.createTransport({
     service:'gmail',
@@ -34,7 +55,7 @@ transporter.sendMail(mailOptions, (err, data)=> {
 //app Routes
 app.use('/api/v1/mail', mailRoute);
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000
 
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
