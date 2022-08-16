@@ -5,6 +5,7 @@ import mailRoute from './routes/mail-route.js';
 import db from './config/database.js';
 import swaggerJSDoc from 'swagger-jsdoc';
 import SwaggerUi from 'swagger-ui-express';
+import registerUser from './controllers/user-controller.js';
 const app = express();
 
 app.use(cors());
@@ -54,6 +55,7 @@ transporter.sendMail(mailOptions, (err, data)=> {
 })*/
 //app Routes
 app.use('/api/v1/mail', mailRoute);
+app.use("/api/v1/register",registerUser);
 
 const PORT = process.env.PORT || 5000
 
